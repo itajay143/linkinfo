@@ -44,6 +44,9 @@ next-env.d.ts
 /apps/web/playwright/.auth/
 .playwright-browsers
 
+# github actions (kept locally, not pushed via Replit token)
+/.github/workflows
+
 # docker
 pgdata
 certificates
