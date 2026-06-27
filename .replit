@@ -1,0 +1,24 @@
+run = ["bash", "-c", "cd /home/runner/workspace && nix shell nixpkgs#nodejs_20 nixpkgs#yarn-berry nixpkgs#postgresql_16 nixpkgs#meilisearch nixpkgs#curl -c bash replit-start.sh"]
+
+hidden = [".config", ".cache", ".local", "node_modules", "apps/*/node_modules", "packages/*/node_modules", ".pgdata", ".meili_data", ".playwright-browsers", ".yarn"]
+
+[nix]
+channel = "stable-25_05"
+
+[agent]
+expertMode = true
+
+[env]
+PATH = "/home/runner/workspace/bin:${PATH}"
+YARN_NPM_REGISTRY_SERVER = "https://registry.npmjs.org"
+YARN_REGISTRY = "https://registry.npmjs.org"
+
+[[ports]]
+localPort = 3000
+externalPort = 80
+
+# Production deployment configuration.
+[deployment]
+run = ["bash", "-c", "cd /home/runner/workspace && nix shell nixpkgs#nodejs_20 nixpkgs#yarn-berry nixpkgs#postgresql_16 nixpkgs#meilisearch nixpkgs#curl -c bash replit-start.sh"]
+build = ["bash", "-c", "cd /home/runner/workspace && nix shell nixpkgs#nodejs_20 nixpkgs#yarn-berry nixpkgs#postgresql_16 nixpkgs#meilisearch nixpkgs#curl -c bash replit-build.sh"]
+deploymentTarget = "cloudrun"
