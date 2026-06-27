@@ -42,6 +42,7 @@ next-env.d.ts
 /apps/web/playwright-report/
 /apps/web/playwright/.cache/
 /apps/web/playwright/.auth/
+.playwright-browsers
 
 # docker
 pgdata
